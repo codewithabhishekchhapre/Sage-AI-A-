@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+        .animated-btn {
+            padding: 16px 32px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(90deg, #8f44d2, #3c1872);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(60,24,114,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .animated-btn::after {
+            content: '';
+            position: absolute;
+            left: -75%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
+        .animated-btn:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 24px rgba(60,24,114,0.3);
+        }
+        .animated-btn:hover::after {
+            left: 120%;
+        }
+    </style>
+</head>
+<body>
+    <button class="animated-btn">Animated Button</button>
+</body>
+</html>

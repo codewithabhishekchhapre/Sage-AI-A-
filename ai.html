@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI App - Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #8f44d2 0%, #3c1872 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(90deg, #8f44d2, #3c1872);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            box-shadow: 0 2px 12px rgba(60,24,114,0.08);
+        }
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .navbar ul li a:hover {
+            color: #ffd86b;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 64px);
+            text-align: center;
+            color: #fff;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 24px rgba(60,24,114,0.2);
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: 36px;
+            color: #e0d7f7;
+        }
+        .login-form {
+            background: rgba(255,255,255,0.12);
+            padding: 32px 28px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(60,24,114,0.18);
+            backdrop-filter: blur(4px);
+            max-width: 340px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .login-form h2 {
+            margin-bottom: 18px;
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.18);
+            color: #3c1872;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: background 0.2s;
+        }
+        .login-form input:focus {
+            background: rgba(255,255,255,0.28);
+        }
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #8f44d2, #3c1872);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .login-form button:hover {
+            background: linear-gradient(90deg, #3c1872, #8f44d2);
+            transform: scale(1.04);
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 16px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .login-form {
+                padding: 20px 10px;
+            }
+        }
+        .footer {
+            width: 100%;
+            background: #fff;
+            color: #3c1872;
+            box-shadow: 0 -2px 12px rgba(60,24,114,0.06);
+            padding: 0;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 24px 18px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #8f44d2;
+            margin-bottom: 6px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 6px;
+        }
+        .footer-links a {
+            color: #3c1872;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #8f44d2;
+        }
+        .footer-copy {
+            font-size: 0.98rem;
+            color: #8f44d2;
+            opacity: 0.8;
+        }
+        @media (max-width: 600px) {
+            .footer-content {
+                padding: 18px 6px 12px 6px;
+                gap: 8px;
+            }
+            .footer-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-logo {
+                font-size: 1.1rem;
+            }
+        }
+        .pricing-section {
+            background: #f8f8ff;
+            padding: 56px 0 40px 0;
+            text-align: center;
+        }
+        .pricing-title {
+            font-size: 2.2rem;
+            color: #3c1872;
+            margin-bottom: 36px;
+            font-weight: 700;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .pricing-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(60,24,114,0.10);
+            padding: 32px 28px 28px 28px;
+            min-width: 260px;
+            max-width: 320px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid transparent;
+        }
+        .pricing-card.popular {
+            border-color: #8f44d2;
+            box-shadow: 0 8px 32px rgba(143,68,210,0.15);
+            position: relative;
+        }
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8f44d2;
+            color: #fff;
+            font-size: 0.95rem;
+            padding: 3px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .plan-name {
+            font-size: 1.3rem;
+            color: #8f44d2;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .plan-price {
+            font-size: 2.1rem;
+            color: #3c1872;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .plan-price span {
+            font-size: 1rem;
+            color: #8f44d2;
+            font-weight: 500;
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 22px 0;
+            color: #3c1872;
+            font-size: 1rem;
+        }
+        .plan-features li {
+            margin-bottom: 8px;
+        }
+        .plan-btn {
+            background: linear-gradient(90deg, #8f44d2, #3c1872);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(143,68,210,0.10);
+        }
+        .plan-btn:hover {
+            background: linear-gradient(90deg, #3c1872, #8f44d2);
+            transform: scale(1.05);
+        }
+        @media (max-width: 900px) {
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .pricing-card {
+                max-width: 90vw;
+            }
+        }
+        .service-section {
+            background: #fff;
+            padding: 56px 0 40px 0;
+            text-align: center;
+        }
+        .service-title {
+            font-size: 2.2rem;
+            color: #3c1872;
+            margin-bottom: 36px;
+            font-weight: 700;
+        }
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .service-card {
+            background: #f8f8ff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(60,24,114,0.10);
+            padding: 32px 28px 28px 28px;
+            min-width: 220px;
+            max-width: 300px;
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-16px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 12px 32px rgba(143,68,210,0.18);
+            border-color: #8f44d2;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+            color: #8f44d2;
+            transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(8deg);
+        }
+        .service-name {
+            font-size: 1.2rem;
+            color: #3c1872;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .service-desc {
+            font-size: 1rem;
+            color: #3c1872;
+            opacity: 0.85;
+        }
+        @media (max-width: 900px) {
+            .service-cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .service-card {
+                max-width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Sage AI</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <div>
+            <div class="hero-title">Welcome to Sage AI</div>
+            <div class="hero-desc">Empowering your workflow with intelligent solutions. Sign in to get started!</div>
+            <form class="login-form" id="login">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    <section class="pricing-section">
+        <h2 class="pricing-title">Our Pricing</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="plan-name">Basic</div>
+                <div class="plan-price">$9<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>1 User</li>
+                    <li>Basic Support</li>
+                    <li>5GB Storage</li>
+                </ul>
+                <button class="plan-btn">Choose Basic</button>
+            </div>
+            <div class="pricing-card popular">
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">$19<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>5 Users</li>
+                    <li>Priority Support</li>
+                    <li>50GB Storage</li>
+                </ul>
+                <button class="plan-btn">Choose Pro</button>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">$49<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>Unlimited Users</li>
+                    <li>24/7 Support</li>
+                    <li>500GB Storage</li>
+                </ul>
+                <button class="plan-btn">Choose Enterprise</button>
+            </div>
+        </div>
+    </section>
+    <section class="service-section">
+        <h2 class="service-title">Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <div class="service-name">AI Consulting</div>
+                <div class="service-desc">Expert advice to integrate AI into your business and boost productivity.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <div class="service-name">Automation</div>
+                <div class="service-desc">Automate repetitive tasks and streamline your workflow with smart solutions.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <div class="service-name">Data Security</div>
+                <div class="service-desc">Protect your data with advanced AI-driven security protocols and monitoring.</div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Sage AI</div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#login">Login</a>
+            </div>
+            <div class="footer-copy">&copy; 2024 Sage AI. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
