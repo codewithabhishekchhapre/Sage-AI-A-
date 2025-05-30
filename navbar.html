@@ -3,6 +3,13 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.6/ScrollTrigger.min.js" integrity="sha512-+LXqbM6YLduaaxq6kNcjMsQgZQUTdZp7FTaArWYFt1nxyFKlQSMdIF/WQ/VgsReERwRD8w/9H9cahFx25UDd+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.6/ScrollTrigger.js" integrity="sha512-alUs/9QWS9TdxYygQKopHrjMK9T+Tun55+1EKgiG8lCSHSL2Br7p69RsCFCycu2T2I707/8Y0vkyjTVGHdfHUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+     
+
      <style>
           *{
           margin: 0px;
@@ -18,11 +25,18 @@
                color: white;
                justify-content: space-around;
                align-items: center;
+               position: sticky;
+               top: 0px;
            }
            .navbar ul{
                display: flex;
                gap: 20px;
                list-style: none;
+           }
+           .navbar ul li{
+               font-size: 18px;
+               cursor: pointer;
+               transition: all 0.3s ease;
            }
            .navbar button{
                padding: 8px 25px;
@@ -31,6 +45,100 @@
                color: white;
                border-radius: 10px;
                border: 2px solid slateblue;
+           }
+           .container{
+               height: calc(100vh - 80px);
+               width: 100%;
+               background-color: rgb(7, 44, 82);
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               gap: 20px;
+           }
+           .content{
+               width: 45%;
+               height: 80%;
+               /* background-color: teal; */
+               padding: 50px 100px;
+               color: white;
+           }
+           .content h4{
+               font-size: 18px;
+               margin-bottom: 25px;
+           }
+               .content h1{
+                    font-size: 40px;
+                    margin-bottom: 15px;
+               }
+               .content p{
+                    font-size: 16px;
+                    margin-bottom: 25px;
+               }
+               .content button{
+                    padding: 10px 25px;
+                    font-size: 16px;
+                    background-color: rgb(7, 44, 82);
+                    color: white;
+                    border-radius: 10px;
+                    border: 2px solid slateblue;
+               }
+           .image{
+               width: 45%;
+               height: 80%;
+               /* background-color: tomato; */
+           }
+           .image img{
+               border-radius: 15px;
+           }
+           .service-card{
+               height: 450px;
+               width: 100%;
+               /* background-color: gray; */
+               padding-top: 50px;
+           }
+           .service-card h1, .service-card h3{
+               text-align: center;
+           } 
+           .cards{
+               height: 350px;
+               width: 100%;
+               /* background-color: orange; */
+               display: flex;
+               justify-content: center;
+               align-items: center;
+           }
+           .card{
+               height: 300px;
+               width: 250px;
+               /* background-color: gray; */
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               gap: 15px;
+           }
+           .card img{
+               height: 150px;
+               width: 150px;
+               border-radius: 50%;
+           }
+           .chat{
+               height: 100px;
+               width: 100px;
+               border-radius: 50%;
+               border:2px solid green ;
+               position: fixed;
+               right: 10px;
+               bottom:25px;
+           }
+           input:
+           input{
+           }
+           input::placeholder{
+               color: red;
+               font-size: 20px;
+               font-weight: bold;
+               padding: 25px;
            }
      </style>
 </head>
@@ -46,5 +154,88 @@
           </ul>
           <button>Contact Us</button>
      </div>
+
+     <div class="container">
+          <div class="content">
+               <h4>Welcome to LOGOBAKERY</h4>
+               <h1>Best bakery in your city</h1>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sit optio soluta? Eveniet aspernatur unde explicabo numquam! Dicta debitis facilis alias ratione illo reprehenderit, molestiae consequuntur numquam. Debitis, omnis maxime?</p>
+               <button>Order Now</button>
+          </div>
+          <div class="image">
+               <img src="https://t4.ftcdn.net/jpg/03/45/56/61/360_F_345566184_ZLFzMopvQbJdAYLn9kW8zEqoOjH5Eemd.jpg" alt="">
+          </div>
+     </div>
+
+     <input type="text" placeholder="enter name">
+
+     <div class="service-card">
+          <h3>Our Categories</h3>
+          <h1>Shop by Category</h1>
+          <div class="cards">
+
+               <div class="card">
+                    <img src="https://i.pinimg.com/736x/2b/14/b9/2b14b9a34f04c8c7e541f35ec715b0c7.jpg" alt="">
+                    <h3>Red Velvet Cake</h3>
+                    <p>25 products</p>
+               </div>
+               <div class="card">
+                    <img src="https://i.pinimg.com/736x/2b/14/b9/2b14b9a34f04c8c7e541f35ec715b0c7.jpg" alt="">
+                    <h3>Red Velvet Cake</h3>
+                    <p>25 products</p>
+               </div>
+               <div class="card">
+                    <img src="https://i.pinimg.com/736x/2b/14/b9/2b14b9a34f04c8c7e541f35ec715b0c7.jpg" alt="">
+                    <h3>Red Velvet Cake</h3>
+                    <p>25 products</p>
+               </div>
+               <div class="card">
+                    <img src="https://i.pinimg.com/736x/2b/14/b9/2b14b9a34f04c8c7e541f35ec715b0c7.jpg" alt="">
+                    <h3>Red Velvet Cake</h3>
+                    <p>25 products</p>
+               </div>
+          </div>
+     </div>
+     <script>
+
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".card").forEach((card, i) => {
+  gsap.from(card, {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+    delay: i * 0.2, // stagger effect manually
+    scrollTrigger: {
+      trigger: card,
+      start: "top 70%", // when top of card reaches 50% of viewport
+      toggleActions: "play none none none",
+      markers: true
+    }
+  });
+});
+
+
+          // Animate the .content div from the left
+          gsap.from(".content", {
+               x: -200,       // start 200px to the left
+               opacity: 0,    // start invisible
+               duration: 1.5, // animate over 1.5 seconds
+               ease: "power3.out"
+          });
+     
+          // You can also animate the image section if desired
+          gsap.from(".image", {
+               z: -300,      // 👈 Starts far away in Z axis
+        opacity: 0,
+        scale: 0.5,  
+               duration: 1.5,
+               ease: "power3.out",
+               delay: 0.5     // start a bit later for staggered effect
+          });
+     </script>
+     
 </body>
 </html>
